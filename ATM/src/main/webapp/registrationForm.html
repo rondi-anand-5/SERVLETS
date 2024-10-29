@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background:lavender;
+            background-size: cover;
+        }
+        .main {
+            text-align: center;
+            text-decoration: wavy 3px pink underline;
+            color: blue;
+        }
+        img {
+            height: 200px;
+            width: 200px;
+        }
+        .main-container {
+            width: 17%;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 0 3px pink;
+            border-radius: 3%;
+        }
+        .main-container > div {
+            margin-bottom: 4px;
+        }
+        input {
+            border: none;
+            outline: none;
+            padding: 2px;
+        }
+        .main-container > div:nth-child(n) > div:nth-child(1) {
+            color: green;
+        }
+        .error {
+            color: red;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="reg" id="fm">
+        <div class="main">
+            <h1>Registration Form</h1>
+        </div>
+
+        <div class="main-container">
+            <div>
+                <div><label for="accno">AccNo:</label></div>
+                <div><input type="text" name="accno" required autofocus maxlength="12" id="acno" /></div>
+                <div id="error" class="error"></div>
+            </div>
+
+            <div>
+                <div><label for="accpin">AccPin:</label></div>
+                <div><input type="text" name="accpin" id="acpn" required maxlength="4" /></div>
+                <div id="error1" class="error"></div>
+            </div>
+
+            <div>
+                <div><label for="entry_of_date">Date:</label></div>
+                <div><input type="date" name="entry_of_date" required /></div>
+            </div>
+
+            <div>
+                <div><label for="name">Name:</label></div>
+                <div><input type="text" name="name" required id="nam" /></div>
+                <div id="error2" class="error"></div>
+            </div>
+
+            <div>
+                <div><label for="pass">Password:</label></div>
+                <div><input type="password" name="pass" required id="pas" /></div>
+                <div id="error3" class="error"></div>
+            </div>
+
+            <div>
+                <div><label for="dob">DOB:</label></div>
+                <div><input type="date" name="dob" required /></div>
+            </div>
+
+            <div>
+                <div><label for="aadharno">AadharNo:</label></div>
+                <div><input type="text" name="aadharno" maxlength="12" required id="adha" /></div>
+				<div id="error5" class="error"></div>
+            </div>
+
+            <div>
+                <div><label for="gender">Gender:</label></div>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other" required>
+                <label for="other">Other</label>
+            </div>
+
+            <div>
+                <div><label for="education">Education:</label></div>
+                <input type="radio" id="educated" name="education" value="educated" required>
+                <label for="educated">Educated</label>
+                <input type="radio" id="uneducated" name="education" value="uneducated" required>
+                <label for="uneducated">Uneducated</label>
+            </div>
+
+            <div>
+                <div><label for="contact">Contact:</label></div>
+                <div><input type="text" id="contact" name="contact" maxlength="10" required /></div>
+                <div id="error4" class="error"></div>
+            </div>
+
+            <div>
+                <div><label for="email">Email:</label></div>
+                <div><input type="email" id="email" name="email" maxlength="50" required /></div>
+            </div>
+
+            <div>
+                <div><label for="address">Address:</label></div>
+                <div><textarea id="address" name="address" rows="4" cols="20" required></textarea></div>
+            </div>
+
+            <div style="text-align:center">
+                <div><input type="submit" /></div>
+            </div>
+        </div><br>
+
+        <div style="text-align:center">
+            <div><a href="Logform.html">Already have an account? Click here</a></div>
+        </div>
+
+        <script>
+            const fm = document.querySelector("#fm");
+            fm.addEventListener("submit", Change)
+          function Change(e)	 {
+                const acc = document.querySelector("#acno").value;
+                const acp = document.querySelector("#acpn").value;
+                const na = document.querySelector("#nam").value;
+               // const ps = document.querySelector("#pas").value;
+                const con = document.querySelector("#contact").value;
+				const ad=document.querySelector("#adha").value;
+
+                const reg = /^\d{12}$/; // 12 digits for account number
+                const reg1 = /^\d{4}$/; // 4 digits for account pin
+                const reg2 = /[a-zA-Z]/; // at least one alphabet in name
+               // const reg3 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=(?:[^!@#$%^&*]*[!@#$%^&*]){2})(?=.*[$])[!@#$%^&*A-Za-z\d$]{7}$/; // Password validation
+                const reg4 = /^\d{10}$/; // 10 digits for contact number
+				const reg5=/^{12}$/;
+
+               
+                if (!reg.test(acc)) {
+                    document.querySelector("#error").innerText = "Account number must be exactly 12 digits.";
+                    e.preventDefault(); 
+                } else {
+                    document.querySelector("#error").innerText = "";
+                }
+
+               
+                if (!reg1.test(acp)) {
+                    document.querySelector("#error1").innerText = "Please enter a 4 digit number.";
+                    e.preventDefault();
+                } else {
+                    document.querySelector("#error1").innerText = "";
+                }
+
+                
+                if (!reg2.test(na)) {
+                    document.querySelector("#error2").innerText = "Please enter at least one alphabet.";
+                    e.preventDefault();
+                } else {
+                    document.querySelector("#error2").innerText = "";
+                }
+
+                /*
+                if (!reg3.test(ps)) {
+                    document.querySelector("#error3").innerText = "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 2 special characters, and 1 dollar sign.";
+                    e.preventDefault();
+                } else {
+                    document.querySelector("#error3").innerText = "";
+                }*/
+
+                // Validate contact number
+                if (!reg4.test(con)) {
+                    document.querySelector("#error4").innerText = "Contact number must be exactly 10 digits.";
+                    e.preventDefault();
+                } else {
+                    document.querySelector("#error4").innerText = "";
+                }
+				  if (!reg5.test(ad)) {
+                    document.querySelector("#error5").innerText = "aadhar number must be exactly 12 digits.";
+                    e.preventDefault();
+                } else {
+                    document.querySelector("#error5").innerText = "";
+                }
+
+				
+            }
+        </script>
+    </form>
+</body>
+</html>

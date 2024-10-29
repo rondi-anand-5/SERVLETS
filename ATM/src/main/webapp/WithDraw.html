@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Withdrawal Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightgreen;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: yellow;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 100px;
+        }
+
+        h2 {
+            text-align: center;
+            background-color: red;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Withdrawal Form</h2>
+        <form action="/ATM/draw" method="post" id="fm">
+            <table border="0">
+                <tr>
+                    <td>AccNo<input type="text" id="accno" name="AccNo" required></td><br>
+                    <div id="error" class="error"></div>
+                </tr>
+                <tr>
+                    <td>Amount<input type="number" id="amount" name="Amount" required></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        const fm = document.querySelector("#fm");
+        fm.addEventListener("submit", Change);
+        
+        function Change(e) {
+            const acc = document.querySelector("#accno").value;
+            const reg1 = /^\d{12}$/;
+            if (!reg1.test(acc)) {
+                document.querySelector("#error").innerText = "Please ensure your account number is 12 digits.";
+                e.preventDefault();
+            } else {
+                document.querySelector("#error").innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>

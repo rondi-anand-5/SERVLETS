@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.name:hover {
+    background-color: yellow;
+}
+.error {
+    color: red;
+    font-size: 16px;
+}
+</style>
+</head>
+<body style="background-color: green;">
+<center>
+<h1 style="background-color: white;">LOGIN FORM</h1>
+<form method="post" action="log" id="logi">
+<table border="0">
+<tr>
+    <td>AccNo</td>
+    <td><input type="text" name="AccNo" id="lo" maxlength="12"></td>
+</tr>
+<tr>
+    <td colspan="2">
+        <div id="error" class="error"></div>
+    </td>
+</tr>
+<tr>
+    <td>AccPin</td>
+    <td><input type="password" name="AccPin" id="pin"></td>
+</tr>
+<tr>
+    <td colspan="2">
+        <div id="error1" class="error"></div>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" style="text-align: center;">
+        <button type="submit">Login</button>
+    </td>
+</tr>
+</table>
+<br>
+<div class="name">
+    <a href="registrationForm.html">New user? REGISTER HERE</a>
+</div>
+</form>
+</center>
+
+<script>
+const lo = document.querySelector("#logi");
+lo.addEventListener("submit", Change);
+
+function Change(e) {
+    const Acc = document.querySelector("#lo").value;
+    const pi = document.querySelector("#pin").value;
+    const reg1 = /^\d{12}$/;
+    const reg2 = /^\d{4}$/;
+
+    if (!reg1.test(Acc)) {
+        document.querySelector("#error").textContent = "Please enter your exact 12-digit account number";
+        e.preventDefault();
+    } else {
+        document.querySelector("#error").textContent = "";  
+    }
+
+    if (!reg2.test(pi)) {
+        document.querySelector("#error1").textContent = "Please enter your 4-digit pin";
+        e.preventDefault();
+    } else {
+        document.querySelector("#error1").textContent = "";  
+    }
+}
+</script>
+
+</body>
+</html>

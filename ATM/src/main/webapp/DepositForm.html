@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="your-icon-url-here"> 
+    <style>
+        body {
+            background: green;
+        }
+        .main {
+            box-shadow: 0 0 2px yellow;
+            border: 2px solid yellow;
+            padding: 20px; 
+            margin: auto; 
+            width: 300px; 
+            border-radius: 3%;
+        }
+        .main div {
+            margin-bottom: 10px;
+        }
+        h3 {
+            text-align: center;
+            background: yellow;
+            border-radius: 2%;
+        }
+    </style>
+</head>
+<body>
+    <form action="depos" method="post"> 
+        <div class="main">
+            <h3>Deposit Page</h3>
+            <div>
+                <div><label for="accno">Account Number</label></div>    
+                <div><input type="text" name="accno" /></div>     
+            </div>
+            <div>
+                <div><label for="amount">Amount</label></div>    
+                <div><input type="text" name="amount" /></div>                     
+            </div><br>
+            <div style="text-align: center">
+                <button type="submit">Deposit</button> 
+            </div>
+        </div>
+    </form> 
+</body>
+</html>

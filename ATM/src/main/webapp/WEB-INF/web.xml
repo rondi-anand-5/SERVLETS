@@ -1,0 +1,87 @@
+<web-app>
+
+
+	<welcome-file-list>
+		<welcome-file>Welcome</welcome-file>
+	</welcome-file-list>
+
+
+	<servlet>
+		<servlet-name>welcome</servlet-name>
+		<servlet-class>bankmanagement.Welcome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>welcome</servlet-name>
+		<url-pattern>/Welcome</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>regis</servlet-name>
+		<servlet-class>bankmanagement.Register</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>regis</servlet-name>
+		<url-pattern>/reg</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>lo</servlet-name>
+		<servlet-class>bankmanagement.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>lo</servlet-name>
+		<url-pattern>/log</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>deposit</servlet-name>
+		<servlet-class>bankmanagement.Deposit</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deposit</servlet-name>
+		<url-pattern>/depos</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>check</servlet-name>
+		<servlet-class>bankmanagement.Check</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>check</servlet-name>
+		<url-pattern>/check</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>withdraw</servlet-name>
+		<servlet-class>bankmanagement.Withdraw</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>withdraw</servlet-name>
+		<url-pattern>/draw</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>che</servlet-name>
+		<servlet-class>bankmanagement.Change</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>che</servlet-name>
+		<url-pattern>/chan</url-pattern>
+
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>che</servlet-name>
+		<servlet-class>bankmanagement.Transfer</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>che</servlet-name>
+		<url-pattern>/transfer</url-pattern>
+
+	</servlet-mapping>
+
+</web-app>
