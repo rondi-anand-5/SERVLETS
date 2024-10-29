@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<center>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lavender;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: gray;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid peach;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: silver;
+            color: mustard;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Change PIN</h1>
+        <form action="./change" method="post" id="frm" >
+            <table border="0">
+                <tr>
+                    <td>Current PIN:</td>
+                    <td><input type="text" name="cpin"></td> 
+                </tr>
+                <tr>
+                    <td>New PIN:</td>
+                    <td><input type="text" name="npin"></td>
+                </tr>
+                <tr>
+                    <td>Confirm New PIN:</td>
+                    <td><input type="text" name="cfnpin"></td> 
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Change PIN"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</center>
+</html>

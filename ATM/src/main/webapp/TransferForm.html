@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<center>
+<head>
+    <title>Bank Transfer Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: green;
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: brown;
+            color: purple;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bank Transfer Form</h1>
+        <form action="transfer" method="post">
+           <table border=0>
+		   
+		   <tr>
+           <td>FromAccNo</td><td><input type="text" name="FromAccNo"></td>
+           <tr>
+		   
+            <tr>
+            <td>ToAccNo</td><td><input type="text" name="ToAccNo"></td>
+            <tr>
+
+            <tr>
+           <td>Amount</td><td><input type="text" name="Amount"></td>
+           <tr>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="Description" rows="4" cols="50"></textarea>
+			</table>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+<center>
+</html>

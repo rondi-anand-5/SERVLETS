@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHECK BALANCE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: green;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: lightgray; /* Use 'lightgray' instead */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            background-color: yellow;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: blue;
+            color: pink;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .error{
+          color:red;
+		  font-size:16px;
+          }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Check Balance</h2>
+        <form action="check" method="post" id="frm">
+            <div>
+                <label for="accno">AccNo</label>
+                <input type="text" name="accno" id="accno" required>
+                <div id="error" class="error"></div>
+				
+            </div>
+            <div>
+                <label for="accpin">AccPin</label>
+                <input type="text" name="accpin" id="accpin" required>
+            </div>
+            <div style="text-align:center">
+                <button type="submit">Check Balance</button>
+            </div>
+        </form>
+    </div>
+	<script>
+	   const fm=document.querySelector("#frm");
+	   fm.addEventListerner("submit",Change);
+	   function Change(e)
+	   {
+	      const acc=document.querySelector("#accno").value;
+		  const reg1=/^\d{12}$/;
+		  if(!reg.test(acc))
+		  {
+		     document.querySelector("#error").innerText="please account number your 12 digits";
+			 e.preventDefault();
+			 }
+			 else
+			 {
+			    document.querySelector("#error").innerText="";
+			 }
+	   }
+	</script>
+</body>
+</html>
